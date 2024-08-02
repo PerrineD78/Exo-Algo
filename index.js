@@ -1,3 +1,5 @@
+console.log("first test");
+
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 1
 // Crée une fonction qui prend deux paramètres (a et b) et retourne la somme multipliée des deux paramètres.
@@ -10,7 +12,12 @@
 // }
 // console.log(nomDeMaFonction(On remplace le paramètre par ce qu'on désire)) //
 
+const function1 = (a, b) => {
+  return a*b
+};
 
+console.log("exercice 1 : ", function1(2, 3));
+  
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 2
 
@@ -18,8 +25,20 @@
 // Exemple : [1, 2, 3] => 1
 // Pour rappel pour accéder à un élément d'un tableau on utilise la méthode [laplaceDuNombreDeL'élément] :
 // const monTableau = [1, 2, 3]
-// console.log(monTableau[0]) // 1
+// console.log(monTableau[0]) // 
 
+const myArray1 = [1, 2, 3];
+
+const function2 = (array) => {
+  return array[0]
+};
+
+console.log("exercice 2 : ", function2(myArray1))
+
+// Autres possibilités :
+// console.log(getFirstElement([1, 2, 3]));         // Devrait afficher 1
+// console.log(getFirstElement(['a', 'b', 'c']));   // Devrait afficher 'a'
+// console.log(getFirstElement([]));                // Devrait afficher undefined
 
 
 //----------------------------------------------------------------------------------------------//
@@ -32,7 +51,12 @@
 // monTableau.pop()
 // console.log(monTableau) // [1, 2]
 
+const function3 = (array) => {
+  array.pop()
+  return array
+};
 
+console.log("exercice 3 : ", function3(myArray1))  // Devrait afficher [1, 2]
 
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 4
@@ -45,6 +69,17 @@
 //   console.log(monTableau[i]) // 1, 2, 3
 // }
 
+const myArray2 = [1, 2, 3, 4]
+
+const function4 = (array) => {
+  let sum = 0                                     // j'initialise une variable pour stocker la somme
+  for (let i = 0; i < array.length; i++) {        // je fais une boucle pour parcourir les elements du tableau
+    sum +=(array[i]);                             // j'ajoute chaque élément à la somme
+  };
+  return sum
+};
+
+console.log("exercice 4 : ", function4(myArray2));  // Devrait afficher 10
 
 
 //----------------------------------------------------------------------------------------------//
@@ -418,4 +453,3 @@ sumArr( ["2", "5", "3"], ["2", "4", "9", "5", "5"] ) should return ["4", "9", "1
 // Exemple :
 
 // [  "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠", "A♠",  "2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥", "A♥",  "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦", "A♦",  "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣"]
-
