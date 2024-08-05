@@ -1,5 +1,3 @@
-console.log("first test");
-
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 1
 // Crée une fonction qui prend deux paramètres (a et b) et retourne la somme multipliée des deux paramètres.
@@ -56,7 +54,7 @@ const function3 = (array) => {
   return array
 };
 
-console.log("exercice 3 : ", function3(myArray1))  // Devrait afficher [1, 2]
+console.log("exercice 3 : ", function3(myArray1))  // Doit afficher [1, 2]
 
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 4
@@ -95,6 +93,15 @@ console.log("exercice 4 : ", function4(myArray2));  // Devrait afficher 10
 // console.log(monTableauInverse) // ["o", "l", "l", "e", "H"]
 //Maintenant que la string est inversée il faut la remettre en string avec la méthode join().
 
+const function5 = (string) => {
+  const myArray5 = string.split("");                //Divise la chaine en un tableau de caractères
+  const myArrayReverse = myArray5.reverse();        //Inverse le tableau de caractères
+  const myString5 = myArrayReverse.join("");        //Convertie le tableau inversé en une chaine sans séparateur
+  return myString5;                                 //Retourne la chaine inversée
+}
+
+console.log("exercice 5 : ", function5("chouchou"));  //Doit afficher [uohcuohc]
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -105,7 +112,14 @@ console.log("exercice 4 : ", function4(myArray2));  // Devrait afficher 10
 // const monTableau = [1, 2, 3]
 // console.log(Math.max(...monTableau)) // 3
 
+const myArray6 = [12, 18, 54, 79, 85, 32, 57, 19];
 
+const function6 = (array) => {
+  const greatestNumber = Math.max(...array);  //la méthode Math.max NE PEUT PAS recevoir de tableau en argument. Pour contourner cela, on doit décomposer un tableau en une liste d'arguments individuels que Math.max peut traiter. De ce fait, "...array" décompose le tableau et permet à Math.max de traiter le tableau en argument
+  return greatestNumber;
+}
+   
+console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 
 //----------------------------------------------------------------------------------------------//
 
