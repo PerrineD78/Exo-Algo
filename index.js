@@ -130,7 +130,11 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // const monTableau = [1, 2, 3]
 // console.log(Math.min(...monTableau)) // 1
 
+const function7 = (array) => {
+  return Math.min(...array)
+};
 
+console.log("exercice 7 : ", function7(myArray6));     //Doit retourner 12
 
 //----------------------------------------------------------------------------------------------//
 
@@ -146,6 +150,22 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 //   return element !== "e" && element !== "o"
 // })
 
+const sentence = "Lalgo ça pu du cul" //Doit retourner Llgçpdcl
+
+const function8 = (parameter) => {
+  const sentenceToArray = parameter.split("");
+    const arrayFiltered = sentenceToArray.filter((element) => {
+      return element !== "a" 
+         && element !== "e"
+         && element !== "i"
+          && element !== "o"
+          && element !== "u"
+          && element !== "y"
+   })
+   return arrayFiltered.join("")
+}
+
+console.log("exercice 8 : ", function8(sentence));
 
 
 //----------------------------------------------------------------------------------------------//
@@ -158,7 +178,12 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // const monTableau = [1, 3, 2]
 // console.log(monTableau.sort()) // [1, 2, 3]
 
+const function9 = (parameter) => {
+  const sorting = parameter.sort();
+  return sorting
+}
 
+console.log("exercice 9 : ", function9(myArray6));
 
 //----------------------------------------------------------------------------------------------//
 
@@ -175,8 +200,18 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // }
 // console.log(monTableau) // ["Hello", "elloH", "lloHe", "loHel", "oHell"]
 
+const word10 = "Hello";
 
+const function10 = (parameter) => {
+  const myArray10 = [];
+  for (let i = 0; i < parameter.length; i++) {
+    const wordRotate = parameter.substring(i) + parameter.substring(0, i)
+    myArray10.push(wordRotate)
+  }
+  return myArray10
+}
 
+console.log("exercice 10 : ", function10(word10));
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 11
@@ -189,6 +224,13 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 //   return element + 1
 // })
 
+const myArray11 = [1, 2, 3];
+
+const function11 = myArray11.map((element) => {
+  return element +1
+})
+
+console.log("exercice 11 : ",function11);  //Doit retourner [2, 3, 4]
 
 //----------------------------------------------------------------------------------------------//
 
@@ -202,6 +244,13 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 //   return element.length
 // })
 
+const myArray12 = ["l'algo", "ça", "pu", "du", "cul", "SEVERE"]
+
+const function12 = myArray12.map((element) => {
+  return element.length
+})
+
+console.log("exercice 12 : ", function12);  //Doit retourner [6, 2, 2, 2, 3, 6]
 
 //----------------------------------------------------------------------------------------------//
 
@@ -216,7 +265,13 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 //   return element.charAt(0)
 // })
 
+const myArray13 = ["Abeille", "Logic", "Gnou", "Odeur", "Durée", "Ecru", "Mardi", "Eternel", "Rhum", "Dune", "Epic"];
 
+const function13 = myArray13.map((element) => {
+  return element.charAt(0)
+});
+
+console.log("exercice 13 : ", function13); // Doit retourner ["A", "L", "G", "O", "D", "E", "M", "E", "R", "D", "E"]
 
 //----------------------------------------------------------------------------------------------//
 
@@ -226,7 +281,11 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // Exemple : ["Hello", "World"] => ["o", "d"]
 // Indice regarde l'exercice 13, c'est exactement la même chose sauf qu'il faut récupérer la dernière lettre et non la première.
 
+const function14 = myArray13.map((element) => {
+  return element.charAt(element.length - 1)
+});
 
+console.log("exercice 14 : ", function14); //Doit retourner ["o", "n", "l", "e", "e", "e", "e", "e", "e", "e", "r"]
 
 //----------------------------------------------------------------------------------------------//
 
@@ -236,13 +295,17 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // Exemple : ["Hello", "World","Test", "Salut", "Yo"] => ["Hello", "World", "Salut"]
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la longueur de la string. Incice : la méthode length() permet de récupérer la longueur d'une string.
 
+const function15 = myArray13.filter((element) => {
+return element.length > 5
+});
 
+console.log("exercice 15 : ", function15); //Doit retourner ["Abeille", "Eternel"]
 
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 16
 
-// Crée une fonction qui prend en paramètre un tableau de nombre et qui doit retourner la somme de tout les nombres du tableau.
+// Crée une fonction qui prend en paramètre un tableau de nombre et qui doit retourner la somme de tous les nombres du tableau.
 // Exemple : [1, 2, 3] => 6
 // Pour cette exercice on va utiliser la méthode reduce() qui permet de réduire un tableau en un seul élément :
 // const monTableau = [1, 2, 3]
@@ -250,13 +313,19 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 //   return accumulateur + element
 // }, 0)
 
+const myArray16 = [12, 18, 24];
 
+const function16 = myArray16.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log("exercice 16 : ", function16); //Doit retourner 54
 
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 17
 
-// Crée une fonction qui prend en deux paramètres qui sont deux tableaux de string et qui doit retourner un tableau avec tout les éléments des deux tableaux.
+// Crée une fonction qui prend en deux paramètres qui sont deux tableaux de string et qui doit retourner un tableau avec tous les éléments des deux tableaux.
 // Exemple : ["Hello", "World"] et ["Test", "Salut"] => ["Hello", "World", "Test", "Salut"]
 // Pour cette exercice on va utiliser la méthode concat() qui permet de concaténer deux tableaux :
 // const monTableau1 = ["Hello", "World"]
@@ -264,7 +333,15 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // const monTableauConcat = monTableau1.concat(monTableau2)
 // console.log(monTableauConcat) // ["Hello", "World", "Test", "Salut"]
 
+const myArray171 = ['Hello', 'World'];
+const myArray172 = ['Cacahuete', 'Ecureuil'];
 
+const function17 = (param1, param2) => {
+  const newArray = param1.concat(param2)
+  return newArray
+};
+
+console.log("exercice 17 : ", function17(myArray171, myArray172))  //Doit retourner ['Hello', 'World', 'Cacahuete', 'Ecureuil']
 
 //----------------------------------------------------------------------------------------------//
 
@@ -274,18 +351,31 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // Exemple : ["Poulet", "Chat", "Chien", "Cheval"] => ["Poulet", "Chien", "Cheval"]
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la présence de la lettre "e". Indice : la méthode includes() permet de savoir si une string contient une lettre ou un mot.
 
+const myArray18 = ["samerelipopette", "comment", 'cest', 'ultra', 'chiant', 'serieux'];
+
+const function18 = myArray18.filter((param) => {
+  return param.includes("e")
+});
+
+console.log("exercice 18 : ", function18); //Doit retourner ['samerelipopette', 'comment', 'cest', 'serieux']
 
 
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 19
 
-// Crée une fonction qui prend en paramètre un tableau de nombre et qui doit retourner tout les nombres qui sont pairs par ordre croissant.
+// Crée une fonction qui prend en paramètre un tableau de nombre et qui doit retourner tous les nombres qui sont pairs par ordre croissant.
 // Exemple : [ 2, 9, 6, 5, 6] => [2, 6, 6]
 // Indice : il y a plusieurs façon de faire, soit avec un for, soit avec la méthode filter() une fois ça fait utilise la méthode sort() qui permet de trier un tableau.
 
+const myArray19 = [19, 21, 37, 42, 12, 19, 22, 53];
 
+const function19 = (array) => {
+  const EvenNumbers = array.filter((num) => num % 2 === 0);
+  return EvenNumbers.sort((a, b) => a - b);
+  };
 
+console.log("exercice 19 : ", function19(myArray19));  //Doit retourner [12, 22, 42]
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 20
@@ -298,13 +388,33 @@ console.log("exercice 6 : ", function6(myArray6));     // Doit retourner 85
 // findShort("Prachett is the best author in the world ") // 2
 // findShort("The quick brown fox jumps over the lazy dog") // 3
 
+const sentence20 = "Putain d'algo de merde"
+
+const function20 = (param) => {
+  const sentenceToArray = param.split(" ");
+  const smallestWord = sentenceToArray.map((word) => word.length).sort()[0];
+  return smallestWord
+};
+
+console.log("exercice 20 : ", function20(sentence20));  //Doit retourner 2
 
 
 // EXERCICE 21
 
 //Écrivez une fonction `anagram` qui prend deux chaînes et renvoie un booléen indiquant si les chaînes sont des anagrammes l'une de l'autre. Deux chaînes sont des anagrammes l'une de l'autre si elles contiennent les caractères, quel que soit l'ordre des caractères. Par exemple, "listen" et "silent" sont des anagrammes l'une de l'autre
 
+const string1 = "leon";
+const string2 = "noel";
+const string3 = "kayak"
 
+const function21 = (word1, word2) => {
+  const normalize = (word) => word.toLowerCase().split('').sort().join('');
+  return normalize(word1) === normalize(word2)
+}
+
+console.log("exercice 21 : ", function21(string1, string2));  //Doit retourner true
+console.log("exercice 21bis : ", function21(string1, string3));  //Doit retourner false
+console.log("exercice 21ter : ", function21(string3, string2));  //Doit retourner false
 
 // EXERCICE 22
 
