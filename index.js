@@ -416,6 +416,10 @@ console.log("exercice 21 : ", function21(string1, string2));  //Doit retourner t
 console.log("exercice 21bis : ", function21(string1, string3));  //Doit retourner false
 console.log("exercice 21ter : ", function21(string3, string2));  //Doit retourner false
 
+//Attention, Cette fonction ignore la casse et les espaces, mais elle ne gère pas les accents ou les caractères spéciaux. Si vous avez besoin de gérer ces cas particuliers, il faudrait ajouter une étape de normalisation des chaînes
+
+
+
 // EXERCICE 22
 
 //Ecrivez une fonction qui enlève les doubles lettres d'une chaîne donnée. Par exemple, "google" deviendrait "gogle"
@@ -423,6 +427,19 @@ console.log("exercice 21ter : ", function21(string3, string2));  //Doit retourne
 // removeDoubleLetters("google") // "gogle"
 // removeDoubleLetters("Hello World!") // "Helo World!"
 
+const word22 = "cool"
+const word22bis = "igloo"
+const word22ter = "google"
+
+const function22 = (word) => {
+  return word.split('').filter((char, index, self) =>
+    self.map(c => c.toLowerCase()).indexOf(char.toLowerCase()) === index
+  ).join('');
+}
+
+console.log("exercice 22 : ", function22(word22));  //Doit retourner col
+console.log("exercice 22bis : ", function22(word22bis));  //Doit retourner iglo
+console.log("exercice 22ter : ", function22(word22ter));  //Doit retourner gogle
 
 
 // EXERCICE 23
