@@ -448,6 +448,24 @@ console.log("exercice 22ter : ", function22(word22ter));  //Doit retourner gogle
 // Exemple :
 // createPhoneNumber([1,2,3,4,5,6,7,8,9,0]) // "(123) 456-7890"
 
+const myArray23 = [0,1,3,4,8,9,9,2,7,7]
+const myArray23bis = [5,5,5,1,2,3,7,8,9,0]
+
+const function23Europe = (number) => {
+  if (number.length !== 10) {
+    return "Doit contenir 10 chiffres"
+  }
+  return number.join("").replace(/(\d{2})(?=\d)/g, "$1 ");
+}
+
+const function23State = (numbers) => {
+  let usaNumber = `(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers.slice(6).join('')}`;
+  return usaNumber;
+}
+
+
+console.log("exercice 23: ",function23Europe(myArray23));  //Doit renvoyer 01 34 89 92 77
+console.log("exercice 23bis: ",function23State(myArray23bis));  //Doit renvoyer (555) 132-7890
 
 
 // EXERCICE 24
@@ -458,9 +476,31 @@ console.log("exercice 22ter : ", function22(word22ter));  //Doit retourner gogle
 // findMissingLetter(["O","Q","R","S"]) // "P"
 // Indice : Oubliez pas de boucler et vous pouvez utiliser la méthode charCodeAt() pour récupérer le code unicode d'un caractère.
 // Indice 2 : Vous pouvez utiliser la méthode fromCharCode() pour récupérer un caractère à partir de son code unicode.  Exemple : String.fromCharCode(65) renvoie "A". Mais attention à refaire la boucle dans l'autre sens pour pouvoir comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants.
-// Indice 3 : Il y a plus cas comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants pour trouver le caractère manquant avec une condition if. Et retourner le caractère manquant avec un return et la méthode fromCharCode().
+// Indice 3 : Il y a plus qu'a comparer les codes unicode des caractères du tableau avec les codes unicode des caractères manquants pour trouver le caractère manquant avec une condition if. Et retourner le caractère manquant avec un return et la méthode fromCharCode().
 
+const myArray24 = ["a","b","c","d","f"];
+const myArray24bis = ["O","Q","R","S"];
 
+const findMissingLetter = (array) => {
+  // Convertir la première lettre en son code ASCII
+  let startCode = array[0].charCodeAt(0);
+
+  // Parcourir le tableau
+  for (let i = 0; i < array.length; i++) {
+    // Si le code de la lettre ne correspond pas au code attendu
+    if (array[i].charCodeAt(0) !== startCode) {
+      // Retourner la lettre manquante
+      return String.fromCharCode(startCode);
+    }
+    // Passer à la lettre suivante
+    startCode++;
+  }
+
+  return null; // Si aucune lettre n'est manquante
+};
+
+console.log("exercice 24 : ", findMissingLetter(myArray24)); // Doit afficher "d"
+console.log("exercice 24bis : ", findMissingLetter(myArray24bis)); //doit afficher "P"
 
 // EXERCICE 25
 
@@ -469,7 +509,16 @@ console.log("exercice 22ter : ", function22(word22ter));  //Doit retourner gogle
 // sortString(["Banana", "Orange", "Apple", "Mango"]) // ["Apple", "Banana", "Mango", "Orange"]
 // sortString(["lait", "beurre", "fromage", "yaourt"]) // ["beurre", "fromage", "lait", "yaourt"]
 
+const myArray25 = ["Banana", "Orange", "Apple", "Mango"];
+const myArray25bis = ["lait", "beurre", "fromage", "yaourt"];
 
+const sortString = (word) => {
+  const sortArray = word.sort();
+  return sortArray
+};
+
+console.log("exercice 25 : ", sortString(myArray25)); // Doit afficher ["Apple", "Banana", "Mango", "Orange"]
+console.log("exercice 25bis : ", sortString(myArray25bis)); // Doit retourner ["beurre", "fromage", "lait", "yaourt"]
 
 // EXERCICE 26
 // Écris une fonction qui étant donné deux angles d'un triangle renvoie la mesure du troisième angle.
@@ -479,7 +528,15 @@ console.log("exercice 22ter : ", function22(word22ter));  //Doit retourner gogle
 // otherAngle(60, 60) // 60
 // Indice : Pour trouver le troisième angle, tu dois soustraire la somme des deux angles donnés à 180 degrés.
 
+const angle1 = 30;
+const angle2 = 60;
 
+const thirdAngle = (data1, data2) => {
+  const finalAngle = 180-(data1 + data2);
+  return finalAngle
+}
+
+console.log("exercice 26 :", thirdAngle(angle1, angle2)); //Doit retourner 90
 
 // EXERCICE 27
 // Écris une fonction qui peut déterminer si une année est une année bissextile ou non. Elle doit renvoyer true si c'est le cas, sinon false.
@@ -489,17 +546,29 @@ console.log("exercice 22ter : ", function22(word22ter));  //Doit retourner gogle
 // isLeapYear(2021) // false
 // Indice : Pour savoir ça tu peux utiliser le modulo. Si une année est divisible par 4 et que le reste de la division est égal à 0, alors c'est une année bissextile.
 
+const data27 = 2020;
+const data27bis = 2021;
+
+const isLeapYear = (year) => {
+  if (year % 4 == 0) {
+    return true
+  } else {
+    return false
+  }
+};
+
+console.log("exercice 27 :", isLeapYear(data27)); //Doit retourner true
+console.log("exercice 27bis :", isLeapYear(data27bis)); //Doit retourner false
+
 
 
 // EXERCICE 28
 
 // Voici un example de tableau d'animaux. Écris une fonction qui à partir d'un tableau similaire reçu en paramètre renvoie un nouveau tableau qui lui même contient deux sous-tableaux. Le premier sous-tableau doit contenir les animaux domestiques et le second les animaux sauvages. Les animaux domestiques doivent être triés par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
 
-
-
 // Exemple :
 // sortAnimals(animals) // [["Cat", "Dog", "Donkey", "Pigeon", "Turtle"], ["Eagle", "Monkey", "Panda", "Crocodile"]]
-// Indice : Oubliez pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
+// Indice : N'ublie pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
 
 
 
