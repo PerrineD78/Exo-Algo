@@ -564,12 +564,42 @@ console.log("exercice 27bis :", isLeapYear(data27bis)); //Doit retourner false
 
 // EXERCICE 28
 
-// Voici un example de tableau d'animaux. Écris une fonction qui à partir d'un tableau similaire reçu en paramètre renvoie un nouveau tableau qui lui même contient deux sous-tableaux. Le premier sous-tableau doit contenir les animaux domestiques et le second les animaux sauvages. Les animaux domestiques doivent être triés par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
+// Voici un exemple de tableau d'animaux. Écris une fonction qui à partir d'un tableau similaire reçu en paramètre renvoie un nouveau tableau qui lui même contient deux sous-tableaux. Le premier sous-tableau doit contenir les animaux domestiques et le second les animaux sauvages. Les animaux domestiques doivent être triés par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
 
 // Exemple :
 // sortAnimals(animals) // [["Cat", "Dog", "Donkey", "Pigeon", "Turtle"], ["Eagle", "Monkey", "Panda", "Crocodile"]]
-// Indice : N'ublie pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
+// Indice : N'oublie pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
 
+const myArray28 = ["Cat", "Dog", "Donkey", "Bird", "Turtle", "Eagle", "Monkey", "Panda", "Crocodile"];
+
+function sortAnimals(animalArray) {
+  const pets = [];
+  const wildAnimals = [];
+
+  // Boucle pour classer les animaux
+  animalArray.forEach((animal) => {
+    // toLowerCase permet d'être insensible à la casse
+    if (animal.toLowerCase() === "cat" || animal.toLowerCase() === "dog" || animal.toLowerCase() === "bird" || animal.toLowerCase() === "turtle") {
+      pets.push(animal);
+    } else {
+      wildAnimals.push(animal);
+    }
+  });
+
+  // Trier les animaux domestiques par ordre alphabétique
+  pets.sort();
+  // Trier les animaux sauvages par ordre alphabétique inversé
+  wildAnimals.sort().reverse();
+
+  // Renvoyer un tableau contenant les deux sous-tableaux
+  return [pets, wildAnimals];
+}
+
+// Doit renvoyer 
+//   [ 'Bird', 'Cat', 'Dog', 'Turtle' ],
+//   [ 'Panda', 'Monkey', 'Eagle', 'Donkey', 'Crocodile' ]
+// ]
+console.log("exercice 28", sortAnimals(myArray28));
 
 
 
